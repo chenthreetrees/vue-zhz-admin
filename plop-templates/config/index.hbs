@@ -1,0 +1,126 @@
+/**
+ *
+ * table的属性配置如下：(详细请参考components/SfTable)
+ *   hasMergeRowOrColumn  是否合并单元格，默认为false
+ *   hasShowSummary  是否显示表位合计行，默认为false
+ *   border  是否带有纵向边框，默认为false
+ *   hasSelect  有无选中功能，默认为false
+ *   hasIndex  有无序号功能，默认为false
+ *   hasOperation  有无操作功能，默认为false
+ *   hasExpand  有无展开行功能，默认为false
+ *   tr表头属性配置如下：
+ *     id: '',//唯一标识
+ *     label: '',//标签名
+ *     prop: '',//属性名
+ *     sortable: false,//是否可以排序
+ *     formatter: function(row){}, //列的格式化数据
+ *     className: 'classname', //列的样式
+ *     width：'',//列宽
+ *     min-width: '',//最小列宽,
+ *     show: true //show有三种值：false隐藏当前列，true常规表格列，template自定义表格列
+ *   operation操作列属性配置如下：
+ *     label
+ *     width
+ *     className
+ *     data：[
+ *        // 操作列数据
+ *        {
+ *          label: '编辑', // 按钮文字
+ *          Fun: 'handleSubmit', // 点击按钮后触发的父组件事件
+ *          size: 'mini', // 按钮大小
+ *          id: '1', // 按钮循环组件的key值
+ *          classname: 'show', // 按钮的类名
+ *          permission: [], // 权限
+ *          isShow: function(row) {
+ *            return true
+ *          }
+ *        }
+ *     ]
+ *   expands操作列属性配置如下：
+ *     expands: [
+ *          // 展开行数据
+ *          {
+ *            id: '1',
+ *            label: 'label',
+ *            prop: 'prop'
+ *          }
+ *        ]
+ *
+ * ===============================================
+ *
+ * form表单的配置：(详细请参考components/SfForm)
+ *    formOptions: {
+ *      span: 24,//宽度为24份，span=24表示1行，12表示2行
+ *      rules:{},//对应el-form的rules属性
+ *      forms: [{
+ *        label: '日期',
+ *        prop: 'date',
+ *        placeholder: '', //input的placeholder
+ *        span: 15, //会覆盖上一级的span，单独对该行作用
+ *        template: 'date-picker',//该字段用以表示form-item的类型
+ *        type: '', //date-picker组件的type属性
+ *        format: '' //date-picker组件的format属性
+ *      },
+ *      {
+ *        label: '注册资本',
+ *        prop: 'amount',
+ *        template: 'suffix-text',//带后缀文字的输入框
+ *        suffix: '万元'//后缀
+ *      },
+ *      {
+ *        label: '地址',
+ *        prop: 'address',
+ *        template: 'click'//点击跳转的form-item，不可输入
+ *      },
+ *      {
+ *        label: '省份',
+ *        template: 'region' //区域选择框
+ *      }]
+ *    }
+ *
+ * 下面的模板代码，给出最简单的常用配置
+ **/
+
+const config = {
+  requestUrl: {
+    loadUrl: '',
+    insertUrl: '',
+    updateUrl: '',
+    deleteUrl: ''
+  },
+  table: {
+    hasIndex: true,
+    hasOperation: true,
+    tr: [{
+      id: '1',
+      label: '名称',
+      prop: 'name',
+      show: true
+    }],
+    operation: {
+      // 操作功能
+      label: '操作',
+      data: [{
+        label: '编辑',
+        Fun: 'operation-event',
+        id: '1',
+        type: 'primary'
+      },
+      {
+        label: '删除',
+        Fun: 'operation-event',
+        id: '2',
+        type: 'danger'
+      }
+      ]
+    }
+  },
+  formOptions: {
+    span: 24,
+    forms: [{
+      label: '名称',
+      prop: 'name'
+    }]
+  }
+}
+export default config

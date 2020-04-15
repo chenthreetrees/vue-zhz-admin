@@ -1,0 +1,14 @@
+// /* 改变主题色变量 */
+// $--color-primary: teal;
+
+// /* 改变 icon 字体路径变量，必需 */
+$--font-path: '~element-ui/lib/theme-chalk/fonts';
+
+$--button-primary-background-color:#3757B5;
+$--button-primary-border-color:#3757B5;
+$--button-success-background-color:#4CAF50;
+$--button-success-border-color:#4CAF50;
+$--button-warning-background-color:#F87424;
+$--button-warning-border-color:#F87424;
+
+@import "~element-ui/packages/theme-chalk/src/index";

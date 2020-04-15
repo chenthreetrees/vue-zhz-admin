@@ -1,0 +1,62 @@
+$blue:#324157;
+$light-blue:#3A71A8;
+$red:#C03639;
+$pink: #E65D6E;
+$green: #30B08F;
+$tiffany: #4AB7BD;
+$yellow:#FEC171;
+$panGreen: #30B08F;
+
+//sidebar
+$menuBg:rgb(10,28,84);
+$subMenuBg:rgb(10,28,84);
+$menuHover:#102974;
+$menuText:#fff;
+$menuTextActive:#4e7afb;
+//submenu
+
+//main
+$mainBg:radial-gradient(circle,#102974 ,#0a1c54);
+
+//height
+$titleBarH:60px;
+$tagsViewH:36px;
+$mainH:calc(100vh - 96px);
+
+//hamburger
+$hamburgerH:32px;
+$hamburgerPadding:6px 10px;
+
+//table
+$tableBg:rgb(17,42,117);
+$tableTextColor:#fff;
+$tableBorder:#1e3e9c;
+$tableHover:#1e3e9c;
+
+//scrollbar
+$scrollbarTrack:#1e3e9c;
+$scrollbarThumb:#4e7afb;
+
+//pagination
+$paginationText:#fff;
+$paginationTextActive:#4e7afb;
+$paginationBorder:#1e3e9c;
+
+//input
+$inputText:#fff;
+$inputBorder:#1e3e9c;
+$inputInner:#3757b5;
+
+//dialog
+$dialogBg:rgb(17,42,117);
+$dialogText:#fff;
+
+//tree
+$treeText:#fff;
+$treeHover:#1e3e9c;
+
+//upload
+$uploadText:#fff;
+$uploadHover:#1e3e9c;
+$uploadBorder:#fff;
+
