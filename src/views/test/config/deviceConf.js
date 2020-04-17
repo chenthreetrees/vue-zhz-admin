@@ -169,7 +169,7 @@ const config = {
     deletePermission: ['POST /admin/dv/device/delete'],
     createPermission: ['POST /admin/dv/device/insertOrUpdate']
   },
-  table: {
+  tableOptions: {
     hasSelect: true,
     hasIndex: true,
     hasOperation: true,
@@ -187,13 +187,15 @@ const config = {
       id: '2',
       label: '设备名称',
       prop: 'deviceName',
-      show: true
+      show: true,
+      template: true
     },
     {
       id: '3',
       label: '设备编号',
       prop: 'deviceNo',
-      show: true
+      show: true,
+      template: true
     },
     {
       id: '4',

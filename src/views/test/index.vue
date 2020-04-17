@@ -9,7 +9,14 @@
     @initSearchData="initSearchData"
     @oper-event="handleOper"
     @input-event="handleInput"
-  />
+  >
+    <template v-slot:deviceName="{obj}">
+      {{ obj.row.deviceName }}
+    </template>
+    <template v-slot:deviceNo="{obj}">
+      {{ obj.row.deviceNo }}
+    </template>
+  </BaseTable>
 </template>
 
 <script>

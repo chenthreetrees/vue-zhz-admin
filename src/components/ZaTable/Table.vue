@@ -36,43 +36,8 @@
       type="index"
     />
     <template v-for="item in table.tr">
-      <template v-if="item.children">
-        <el-table-column :key="item.id" :label="item.label" align="center">
-          <template v-for="column in item.children">
-            <el-table-column
-              v-if="column.show !== false && column.show === 'template'"
-              :key="column.id"
-              :fixed="item.fixed"
-              :sortable="column.sortable?column.sortable:true"
-              :label="column.label"
-              :class-name="column.className ? column.className : ''"
-              :width="column.width ? column.width : ''"
-              :min-width="column.minWidth ? column.minWidth : '120'"
-              align="center"
-            >
-              <template slot-scope="scope">
-                <slot :name="column.prop" :obj="scope" />
-              </template>
-            </el-table-column>
-            <el-table-column
-              v-else-if="column.show !== false && column.show !== 'template'"
-              :key="column.id"
-              :fixed="item.fixed"
-              :label="column.label"
-              :sortable="column.sortable?column.sortable:true"
-              :prop="column.prop"
-              :formatter="column.formatter ? column.formatter : null"
-              :class-name="column.className ? column.className : ''"
-              :width="column.width ? column.width : ''"
-              :min-width="column.minWidth ? column.minWidth : '120'"
-              show-overflow-tooltip
-              align="center"
-            />
-          </template>
-        </el-table-column>
-      </template>
       <el-table-column
-        v-if="item.show !== false && item.show === 'template'"
+        v-if="item.show !== false && item.template === true"
         :key="item.id + Math.random()"
         :fixed="item.fixed"
         :sortable="item.sortable?item.sortable:true"
@@ -87,7 +52,7 @@
         </template>
       </el-table-column>
       <el-table-column
-        v-else-if="item.show !== false && item.show !== 'template'"
+        v-else-if="item.show !== false && item.template !== true"
         :key="item.id + Math.random()"
         :fixed="item.fixed"
         :label="item.label"

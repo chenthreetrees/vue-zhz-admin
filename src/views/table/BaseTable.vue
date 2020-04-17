@@ -2,7 +2,8 @@
   <div>
     <ZaTable
       v-bind="$attrs"
-      :table="config.table"
+      v-if="config.tableOptions"
+      :table="config.tableOptions"
       :data="tableData"
       :loading="listLoading"
       :total="total"
@@ -20,8 +21,13 @@
       @operation-event="handleOper"
       @input-click="handleInputClick"
       @selection-change="handleTableSelect"
-      @pagination="load"
-    />
+      @pagination="load">
+
+      <template v-for="item in config.tableOptions.tr" v-slot:[item.prop]="{obj}">
+          <slot v-if="item && item.template" :name="item.prop" :obj="obj" />
+      </template>
+      
+    </ZaTable>
     <FormDialog
       v-if="dialogFormVisible"
       v-bind="$attrs"

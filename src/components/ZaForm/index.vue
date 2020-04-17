@@ -69,16 +69,16 @@
           <template v-else-if="item.template && item.template === 'select'">
             <el-select
               v-model="formData[item.prop]"
-              clearable
+              :clearable="item.clearable !== false"
               :disabled="readOnly || item.disabled"
               :multiple="item.multiple"
-              :value-key="item.labelKey || 'label'"
+              :value-key="item.valueKey"
               :placeholder="item.placeholder || '请选择'"
               @change="selectChange($event,item)"
             >
               <el-option
-                v-for="(option,i) in extendData[item.optionName?item.optionName:item.prop]"
-                :key="i"
+                v-for="option in extendData[item.optionName?item.optionName:item.prop]"
+                :key="option[item.valueKey]"
                 :label="option[item.labelKey || 'label']"
                 :value="item.valueIsObject?option:(item.valueKey?option[item.valueKey]:option.label)"
               />

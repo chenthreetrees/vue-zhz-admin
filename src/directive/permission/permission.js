@@ -11,7 +11,7 @@ export default {
 
       var hasPermission = false
 
-      if (perms.indexOf('*') >= 0) {
+      if (perms.indexOf('*') >= 0 || permissions.indexOf('*') >= 0) {
         hasPermission = true
       } else {
         hasPermission = perms.some(perm => {

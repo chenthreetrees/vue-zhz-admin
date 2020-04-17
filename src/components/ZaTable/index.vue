@@ -23,7 +23,11 @@
       :loading="$attrs.loading"
       height="100%"
       v-on="$listeners"
-    />
+    >
+      <template v-for="item in $attrs.table.tr" v-slot:[item.prop]="{obj}">
+        <slot v-if="item && item.template" :name="item.prop" :obj="obj" />
+      </template>
+    </Table>
     <Pagination
       v-show="$attrs.total > 0"
       v-bind="$attrs"

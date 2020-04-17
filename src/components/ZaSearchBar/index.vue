@@ -18,14 +18,14 @@
               v-if="item.template && item.template === 'select'"
               v-model="searchData[item.prop]"
               :multiple="item.multiple"
-              :value-key="item.labelKey || 'label'"
+              :value-key="item.valueKey"
               :placeholder="item.placeholder || '请选择'"
-              :clearable="item.clearable || true"
+              :clearable="item.clearable !== false"
               @change="selectChange($event,item)"
             >
               <el-option
-                v-for="(option,i) in extendData[item.optionName?item.optionName:item.prop]"
-                :key="i"
+                v-for="option in extendData[item.optionName?item.optionName:item.prop]"
+                :key="option[item.valueKey]"
                 :label="option[item.labelKey || 'label']"
                 :value="item.valueIsObject?option:(item.valueKey?option[item.valueKey]:option.label)"
               />
@@ -36,6 +36,7 @@
                 v-model="searchData[item.prop]"
                 :type="item.type"
                 :placeholder="item.placeholder"
+                :clearable="item.clearable !== false"
                 range-separator="至"
                 style="width:240px;"
                 :start-placeholder="item.startPlaceholder || '开始日期'"
@@ -104,6 +105,8 @@ export default {
   },
   methods: {
     selectChange(option, item) {
+      console.log(option, item)
+
       this.$emit('search-change', { option: option, item: item })
     },
     inputClick(item) {
